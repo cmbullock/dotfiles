@@ -1,8 +1,8 @@
+set nocompatible
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-set nocompatible
 set tabstop=2 
 set shiftwidth=2
 set smartindent
@@ -19,16 +19,24 @@ set ruler
 set cmdheight=2
 set backspace=indent,eol,start
 set shortmess=atI
-set grepprg=ack
 set number
 set diffopt+=iwhite
+set clipboard=unnamed
+set autoread
+set showmatch
+set list
+"set listchars=tab:▸\ ,eol:¬,trail:▫,extends:#,nbsp:▫
+set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
+set noexpandtab
 
 syn on
 filetype on
 filetype plugin on
 filetype indent on
 
+imap kj <ESC>
 map K :<BS>
+map Y y$
 map <Leader>k <C-W>k
 map <Leader>j <C-W>j
 map <Leader>h <C-W>h
@@ -62,13 +70,28 @@ map <Leader>= yyp<Esc>:s/./=/g<CR>yykP
 
 com! Cfg :source ~/.vimrc
 com! -nargs=0 EditRC :topleft vs ~/.vim/vimrc
-
 cabbrev rc EditRC
 
 " Filetype-specific options
 au FileType cf setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
 au FileType javascript setlocal noexpandtab
 au FileType python setlocal shiftwidth=4 tabstop=4 expandtab
+au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filetype=ruby
+
+let g:is_posix = 1
 
 hi Comment ctermfg=DarkGrey
+
+if executable('ag')
+	let g:grepprg = 'ag --nogroup --column'
+	let g:findprg = 'ag --nogroup --column'
+	let g:ctrlp_user_command = {
+		\ 'types': {
+			\ 1: ['.git', 'cd %s && git ls-files . --cached --others --exclude-standard'],
+			\ 2: ['.hg', 'hg --cwd %s status -numac -I . $(hg root)'],
+		\ },
+		\ 'fallback': 'ag %s --files-with-matches --nocolor -g ""'
+	\ }
+
+endif
 
