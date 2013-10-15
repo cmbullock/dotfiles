@@ -73,7 +73,6 @@ com! -nargs=0 EditRC :topleft vs ~/.vim/vimrc
 cabbrev rc EditRC
 
 " Filetype-specific options
-au FileType cf setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
 au FileType javascript setlocal noexpandtab
 au FileType python setlocal shiftwidth=4 tabstop=4 expandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filetype=ruby
