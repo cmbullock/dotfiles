@@ -29,6 +29,8 @@ set list
 set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set noexpandtab
 
+colorscheme distinguished
+
 syn on
 filetype on
 filetype plugin on
