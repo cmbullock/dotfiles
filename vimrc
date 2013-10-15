@@ -30,6 +30,7 @@ set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set noexpandtab
 
 colorscheme distinguished
+hi StatusLineNC ctermbg=236
 
 syn on
 filetype on
@@ -93,6 +94,5 @@ if executable('ag')
 		\ },
 		\ 'fallback': 'ag %s --files-with-matches --nocolor -g ""'
 	\ }
-
 endif
 
