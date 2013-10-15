@@ -43,8 +43,8 @@ map <Leader>h <C-W>h
 map <Leader>l <C-W>l
 map <Leader>n :new<CR>
 map <Leader>v :vnew<CR>
-map <Leader>< :cold<CR>
-map <Leader>> :cnew<CR>
+map <Leader>< <C-W><
+map <Leader>> <C-W>>
 
 map <Leader>g :diffget
 map <Leader>G :diffget<CR>
