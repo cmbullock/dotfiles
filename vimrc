@@ -30,7 +30,7 @@ set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set noexpandtab
 
 colorscheme distinguished
-hi StatusLineNC ctermbg=236
+hi StatusLineNC ctermbg=234
 
 syn on
 filetype on
