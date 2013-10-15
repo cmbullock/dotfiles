@@ -29,9 +29,6 @@ set list
 set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set noexpandtab
 
-colorscheme distinguished
-hi StatusLineNC ctermbg=234
-
 syn on
 filetype on
 filetype plugin on
@@ -67,10 +64,6 @@ nnoremap <C-y> 3<C-y>
 
 map <Leader>= yyp<Esc>:s/./=/g<CR>yykP
 
-" Make folded text and line numbers less visible
-:hi Folded ctermbg=darkgrey
-:hi LineNr ctermfg=darkgrey
-
 com! Cfg :source ~/.vimrc
 com! -nargs=0 EditRC :topleft vs ~/.vim/vimrc
 cabbrev rc EditRC
@@ -95,4 +88,9 @@ if executable('ag')
 		\ 'fallback': 'ag %s --files-with-matches --nocolor -g ""'
 	\ }
 endif
+
+colorscheme distinguished
+hi StatusLineNC ctermbg=233
+hi LineNr ctermbg=233
+hi Comment ctermbg=0
 
