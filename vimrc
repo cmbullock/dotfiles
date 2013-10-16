@@ -78,7 +78,8 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filetype=ru
 let g:is_posix = 1
 
 if exists(':NERDTree')
-  map <Leader>t :NERDTreeToggle<CR>
+  com! NERDTreeSuperToggle :if(exists('b:NERDTreeType')) | NERDTreeToggle | else | NERDTreeFocus | endif
+  map <Leader>t :NERDTreeSuperToggle<CR>
   " Close if only nerdtree is left open
   autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
 endif
