@@ -27,7 +27,8 @@ set showmatch
 set list
 "set listchars=tab:▸\ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
-set noexpandtab
+set expandtab
+set mouse=a
 
 syn on
 filetype on
