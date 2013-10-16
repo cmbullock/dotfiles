@@ -29,6 +29,7 @@ set list
 set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set expandtab
 set mouse=a
+set tw=0
 
 syn on
 filetype on
@@ -76,7 +77,11 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filetype=ru
 
 let g:is_posix = 1
 
-hi Comment ctermfg=DarkGrey
+if exists(':NERDTree')
+  map <Leader>t :NERDTreeToggle<CR>
+  " Close if only nerdtree is left open
+  autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+endif
 
 if executable('ag')
 	let g:grepprg = 'ag --nogroup --column'
