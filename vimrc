@@ -77,14 +77,12 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filetype=ru
 
 let g:is_posix = 1
 
-if exists(':NERDTree')
-  let NERDTreeWinSize=50
-  let NERDTreeShowHidden=1
-  com! NERDTreeSuperToggle :if(exists('b:NERDTreeType')) | NERDTreeToggle | else | NERDTreeFocus | endif
-  map <Leader>t :NERDTreeSuperToggle<CR>
-  " Close if only nerdtree is left open
-  autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
-endif
+let NERDTreeWinSize=50
+let NERDTreeShowHidden=1
+com! NERDTreeSuperToggle :if(exists('b:NERDTreeType')) | NERDTreeToggle | else | NERDTreeFocus | endif
+map <Leader>t :NERDTreeSuperToggle<CR>
+" Close if only nerdtree is left open
+autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --column
@@ -98,6 +96,12 @@ if executable('ag')
 		\ 'fallback': 'ag %s --files-with-matches --nocolor -g ""'
 	\ }
 endif
+
+" Session handling
+au VimLeave * if(exists(':NERDTreeClose')) | NERDTreeClose | endif
+au VimLeave * mksession! .vimsession
+
+au VimEnter * if(filereadable('.vimsession') && argc() == 0) | source .vimsession | endif
 
 colorscheme distinguished
 hi StatusLineNC ctermbg=233
