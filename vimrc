@@ -27,7 +27,7 @@ set showmatch
 set list
 "set listchars=tab:▸\ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
-set expandtab
+set noexpandtab
 set mouse=a
 set tw=0
 
@@ -87,6 +87,7 @@ if exists(':NERDTree')
 endif
 
 if executable('ag')
+  set grepprg=ag\ --nogroup\ --column
 	let g:grepprg = 'ag --nogroup --column'
 	let g:findprg = 'ag --nogroup --column'
 	let g:ctrlp_user_command = {
