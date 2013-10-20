@@ -3,6 +3,7 @@ set nocompatible
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+set cm=blowfish
 set tabstop=2 
 set shiftwidth=2
 set smartindent
