@@ -38,6 +38,7 @@ filetype plugin on
 filetype indent on
 
 imap kj <ESC>
+imap jk <ESC>
 map K :<BS>
 map Y y$
 map <Leader>k <C-W>k
@@ -86,9 +87,9 @@ map <Leader>t :NERDTreeSuperToggle<CR>
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
 
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --column
-	let g:grepprg = 'ag --nogroup --column'
-	let g:findprg = 'ag --nogroup --column'
+  set grepprg=ag\ --nogroup\ --column\ --ignore=log\ --ignore=vendor
+	let g:grepprg = "ag --nogroup --column --ignore='^(log|vendor)'"
+	let g:findprg = "ag --nogroup --column --ignore='^(log|vendor)'"
 	let g:ctrlp_user_command = {
 		\ 'types': {
 			\ 1: ['.git', 'cd %s && git ls-files . --cached --others --exclude-standard'],
