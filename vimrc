@@ -31,6 +31,9 @@ set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set noexpandtab
 set mouse=a
 set tw=0
+set statusline=%F%m%h%w\ %y\ 
+set statusline+=%{fugitive#statusline()}\ 
+set statusline+=%=\ %l/%L,\ %-3c\ %6p%%\ 
 
 syn on
 filetype on
