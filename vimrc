@@ -31,9 +31,7 @@ set listchars=tab:\ \ ,eol:¬,trail:▫,extends:#,nbsp:▫
 set noexpandtab
 set mouse=a
 set tw=0
-set statusline=%F%m%h%w\ %y\ 
-set statusline+=%{fugitive#statusline()}\ 
-set statusline+=%=\ %l/%L,\ %-3c\ %6p%%\ 
+set statusline=%F%m%h%w\ %y\ %=\ %l/%L,\ %-3c\ %6p%%\ 
 
 syn on
 filetype on
@@ -84,10 +82,16 @@ let g:is_posix = 1
 
 let NERDTreeWinSize=50
 let NERDTreeShowHidden=1
+let NERDTreeStatusLine=-1
 com! NERDTreeSuperToggle :if(exists('b:NERDTreeType')) | NERDTreeToggle | else | NERDTreeFocus | endif
 map <Leader>t :NERDTreeSuperToggle<CR>
 " Close if only nerdtree is left open
-autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+au BufEnter * if(winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+" Add git branch to NERDTree status line
+function! CWD()
+	return substitute(getcwd(), $HOME, '~', '')
+endfunction
+au FileType nerdtree setl statusline=%<%{CWD()}\ %=%{fugitive#statusline()}\ 
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --column\ --ignore=log\ --ignore=vendor
@@ -105,7 +109,6 @@ endif
 " Session handling
 au VimLeave * if(exists(':NERDTreeClose')) | NERDTreeClose | endif
 au VimLeave * mksession! .vimsession
-
 au VimEnter * if(filereadable('.vimsession') && argc() == 0) | source .vimsession | endif
 
 colorscheme distinguished
