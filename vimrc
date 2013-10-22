@@ -92,6 +92,7 @@ function! CWD()
 	return substitute(getcwd(), $HOME, '~', '')
 endfunction
 au FileType nerdtree setl statusline=%<%{CWD()}\ %=%{fugitive#statusline()}\ 
+au VimEnter * if(argc() == 0 && isdirectory(getcwd() . '/.git')) | NERDTree | endif
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --column\ --ignore=log\ --ignore=vendor
