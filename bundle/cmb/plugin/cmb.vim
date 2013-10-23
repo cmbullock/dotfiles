@@ -42,3 +42,35 @@ augroup encrypted
 	au BufWritePost,FileWritePost *.gpg u
 augroup END
 
+" Support for running specs
+let s:ruby_spec_cmd = "rspec {spec}"
+
+function! RunSpecFile()
+	if(&ft == 'ruby')
+		if(match(expand('%'), '_spec.rb$') != -1)
+			let l:spec = @%
+			call SetLastSpec(s:ruby_spec_cmd, l:spec)
+			call RunSpec(s:ruby_spec_cmd, l:spec)
+		else
+			let l:spec = 'spec/' . substitute(expand('%'), '\.rb$', '_spec.rb', '')
+			if(filereadable(l:spec))
+				call SetLastSpec(s:ruby_spec_cmd, l:spec)
+				call RunSpec(s:ruby_spec_cmd, l:spec)
+			endif
+		endif
+	endif
+endfunction
+
+function! RunSpec(cmd, spec)
+	exec substitute(a:cmd, '{spec}', a:spec, 'g')
+endfunction
+
+function! SetLastSpec(cmd, spec)
+	let s:last_spec_cmd = a:cmd
+	let s:last_spec = a:spec
+endfunction
+
+function! RunLastSpec()
+	call RunSpec(s:last_spec_cmd, s:last_spec)
+endfunction
+
