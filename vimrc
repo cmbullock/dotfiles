@@ -33,7 +33,6 @@ set mouse=a
 set tw=0
 set statusline=%F%m%h%w\ %y\ %=\ %l/%L,\ %-3c\ %6p%%\ 
 
-syn on
 filetype on
 filetype plugin on
 filetype indent on
@@ -116,4 +115,6 @@ colorscheme distinguished
 hi StatusLineNC ctermbg=233
 hi LineNr ctermbg=233
 hi Comment ctermbg=0
+
+syn on
 
