@@ -14,6 +14,9 @@ export GIT_PS1_SHOWCOLORHINTS=true
 
 . /usr/local/git/contrib/completion/git-prompt.sh
 . /usr/local/git/contrib/completion/git-completion.bash
+
+for SCRIPT in ~/bash_completion.d/*; do . $SCRIPT; done
+
 complete -o default -o nospace -F _git g
 complete -o default -o nospace -F _git mg
 complete -o default -o nospace -F _git megagit
