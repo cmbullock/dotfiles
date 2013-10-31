@@ -1,2 +1,12 @@
-.netrwhist
+# Ignore everything
+/*
+
+# Re-include stuff
+!/bash_completion.d
+!/.CFUserTextEncoding
+!/.bashrc
+!/.bash_profile
+!/.tmux.conf
+!/.vimrc
+
 

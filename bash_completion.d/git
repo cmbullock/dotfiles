@@ -1,0 +1,9 @@
+
+_git_inc() {
+	_git_branch
+}
+
+_git_out() {
+	_git_branch
+}
+
