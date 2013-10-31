@@ -1,0 +1,45 @@
+[user]
+	name = Colin Bullock
+	email = cmbullock@gmail.com
+[alias]
+	amend = commit --ammend -C HEAD
+	br = branch
+	cm = commit --message
+	cam = commit -a --message
+	co = checkout
+	cob = checkout -b
+	d = diff
+	irb = rebase --interactive
+	st = status
+  out = !git fetch && git log ${1:-origin/master}..
+  inc = !git fetch && git log ..${1:-origin/master}
+[credential]
+	helper = osxkeychain
+[color]
+	ui = auto
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[core]
+	whitespace = trailing-space,space-before-tab
+	excludesfile = /Users/colinbullock/.gitignore
+[push]
+	default = simple
+[merge]
+	stat = true
+	diff = vimdiff
+[github]
+	user = cmbullock
+[status]
+	submodulesummary = true
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[heroku]
+	account = colinbullock
