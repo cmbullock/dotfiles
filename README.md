@@ -1,4 +1,4 @@
-vimrc
-=====
+dotfiles
+========
 
-Personal vim config stuff
+Various personal dotfiles, vim config, bash completion, and other goodies.
