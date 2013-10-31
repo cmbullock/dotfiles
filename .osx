@@ -1,0 +1,13 @@
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Disable "are you sure you want to open this application?" dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Automatically quit printer app
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Disable crash reporter
+defaults write com.apple.CrashReporter DialogType -string "none"
+
