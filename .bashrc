@@ -24,6 +24,7 @@ complete -o default -o nospace -F _git megagit
 export HISTCONTROL=erasedups
 export HISTSIZE=
 export PS1='\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0;35m\]$(__git_ps1 " (%s)")\n\[\033[0m\]»» '
+export PROMPT_COMMAND='tabname $(basename ${PWD/#$HOME/~})'
 
 export PATH=$PATH:/usr/local/heroku/bin:$HOME/.rvm/bin:$HOME/dev/devbin
 
