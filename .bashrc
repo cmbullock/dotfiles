@@ -8,6 +8,7 @@ alias mg='megagit'
 alias mp='megapull'
 alias ms='megastatus'
 alias viclean='rm -f .vimsession && vi'
+alias statuswin='tmux split-window && tmux resize-pane -y 15'
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWCOLORHINTS=true
