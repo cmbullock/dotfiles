@@ -22,7 +22,7 @@ set backspace=indent,eol,start
 set shortmess=atI
 set number
 set diffopt+=iwhite
-set clipboard=unnamed
+"set clipboard=unnamed
 set autoread
 set showmatch
 set list
