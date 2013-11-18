@@ -35,6 +35,7 @@ augroup encrypted
 	au BufReadPost,FileReadPost *.gpg set nobin
 	au BufReadPost,FileReadPost *.gpg let &ch = ch_save | unlet ch_save
 	au BufReadPost,FileReadPost *.gpg exec ":doautocmd BufReadPost " . expand("%:r")
+	au BufReadPost,FileReadPost *.gpg redraw!
 
 	" Encrypt before writing
 	au BufWritePre,FileWritePre *.gpg '[,']!gpg --default-recipient-self -ae 2> /dev/null
