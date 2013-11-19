@@ -9,6 +9,13 @@ alias mp='megapull'
 alias ms='megastatus'
 alias viclean='rm -f .vimsession && vi'
 alias statuswin='tmux split-window && tmux resize-pane -y 15'
+alias urlencode='node -e "console.log(encodeURI(process.argv[1]))"'
+alias map='xargs -n1'
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+  alias "$method"="lwp-request -m $method"
+done
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWCOLORHINTS=true
