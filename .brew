@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Update everything
+brew update
+brew upgrade
+
+# Outdated apple stuff
+brew install coreutils
+echo "Add $(brew --prefix coreutils)/libexec/gnubin to \$PATH"
+brew install findutils
+brew install bash
+
+# Must-haves
+brew install vim
+brew install wget --enable-iri
+brew install git
+brew install the_silver_searcher
+brew install imagemagick
+brew install openssl
+brew install node
+brew install pcre
+brew install rlwrap
+brew install tree
+brew install tmux
+
+# Binary-only stuff
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install virtualbox
+brew cask install vlc
+
+# Cleanup
+brew cleanup
+
