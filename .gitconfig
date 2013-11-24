@@ -5,7 +5,7 @@
 	amend = commit --ammend -C HEAD
 	br = branch
 	cm = commit --message
-	cam = commit -a --message
+	cam = !git add -A && git commit -a --message
 	co = checkout
 	cob = checkout -b
 	d = diff
