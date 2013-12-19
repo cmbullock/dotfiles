@@ -9,6 +9,7 @@
 	co = checkout
 	cob = checkout -b
 	d = diff
+  gr = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad %s'
 	irb = rebase --interactive
 	st = status
   out = !git fetch && git log ${1:-origin/master}..
