@@ -56,6 +56,9 @@ map <Leader>p :diffput
 map <Leader>P :diffput<CR>
 map <Leader>u :diffupdate<CR>
 
+map <Leader>r :call RunSpecFile()<CR>
+map <F5> :call RunLastSpec()<CR>
+
 map <F7> :vertical wincmd f<CR>
 
 inoremap <C-@> <C-N>

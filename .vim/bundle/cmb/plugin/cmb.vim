@@ -44,7 +44,7 @@ augroup encrypted
 augroup END
 
 " Support for running specs
-let s:ruby_spec_cmd = "rspec {spec}"
+let s:ruby_spec_cmd = "!rspec {spec}"
 
 function! RunSpecFile()
 	if(&ft == 'ruby')
@@ -54,6 +54,11 @@ function! RunSpecFile()
 			call RunSpec(s:ruby_spec_cmd, l:spec)
 		else
 			let l:spec = 'spec/' . substitute(expand('%'), '\.rb$', '_spec.rb', '')
+			if(filereadable(l:spec))
+				call SetLastSpec(s:ruby_spec_cmd, l:spec)
+				call RunSpec(s:ruby_spec_cmd, l:spec)
+			endif
+			let l:spec = substitute(l:spec, '^spec/app', 'spec', '')
 			if(filereadable(l:spec))
 				call SetLastSpec(s:ruby_spec_cmd, l:spec)
 				call RunSpec(s:ruby_spec_cmd, l:spec)
