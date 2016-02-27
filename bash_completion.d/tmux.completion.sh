@@ -5,6 +5,13 @@
 # Usage: Put "source bash_completion_tmux.sh" into your .bashrc
 # Based upon the example at http://paste-it.appspot.com/Pj4mLycDE
 
+_tas() {
+  TMUX_SESSIONS=$(tmux ls -F '#S' 2> /dev/null | xargs)
+
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$TMUX_SESSIONS" -- $cur) )
+}
+
 _tmux_expand () 
 { 
     [ "$cur" != "${cur%\\}" ] && cur="$cur"'\';

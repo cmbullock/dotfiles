@@ -7,3 +7,11 @@ _git_out() {
 	_git_branch
 }
 
+_git_qa() {
+  _git_branch
+}
+
+_git_promote() {
+  _git_branch
+}
+

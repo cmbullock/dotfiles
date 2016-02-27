@@ -1,19 +1,17 @@
 [user]
 	name = Colin Bullock
-	email = cmbullock@gmail.com
+	email = colin@getset.com
+[github]
+	user = cmbullock
 [alias]
-	amend = commit --ammend -C HEAD
 	br = branch
 	cm = commit --message
 	cam = !git add -A && git commit -a --message
 	co = checkout
 	cob = checkout -b
 	d = diff
-  gr = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad %s'
 	irb = rebase --interactive
 	st = status
-  out = !git fetch && git log ${1:-origin/master}..
-  inc = !git fetch && git log ..${1:-origin/master}
 [credential]
 	helper = osxkeychain
 [color]
@@ -27,20 +25,13 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-[core]
-	whitespace = trailing-space,space-before-tab
-	excludesfile = /Users/colinbullock/.gitignore
 [push]
 	default = simple
 [merge]
 	stat = true
 	diff = vimdiff
-[github]
-	user = cmbullock
 [status]
 	submodulesummary = true
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
-[heroku]
-	account = colinbullock
+[include]
+  path = ~/dev/devbin/git-bin/gitconfig
+

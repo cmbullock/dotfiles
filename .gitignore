@@ -14,3 +14,6 @@ Thumbs.db
 
 .lein-failures
 
+secret.sh
+
+
