@@ -16,8 +16,8 @@ set wildmenu
 set wildmode=list:longest
 set title
 set scrolloff=3
-set backupdir=~/.vimtmp,~/.tmp,/var/tmp,/tmp
-set directory=~/.vimtmp,~/.tmp,/var/tmp,/tmp
+set backupdir=~/.vimtmp//,~/.tmp//,/var/tmp//,/tmp//
+set directory=~/.vimtmp//,~/.tmp//,/var/tmp//,/tmp//
 set ruler
 set cmdheight=2
 set backspace=indent,eol,start
