@@ -1,12 +1,32 @@
 
+# Get sudo perms upfront
+sudo -v
+
+# Keep-alive for sudo
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Get rid of time machine icon
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu" 
+
+# Prevent time machine from offering to use new drives as backup
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disable local time machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Dont hide scroll bars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Save to disk by default, not iCloud
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # Disable "are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -17,11 +37,101 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Disable crash reporter
 defaults write com.apple.CrashReporter DialogType -string "none"
 
+# Enable AirDrop on non-wifi connections
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+# Enable debug menu in iCal
+defaults write com.apple.iCal IncludeDebugMenu -bool true
+
+# Disable mission control, dashboard and spaces
+defaults write com.apple.doc mcx-disabled -bool true
+defaults write com.apple.dock mcx-expose-disabled -bool true
+
+# Disable startup sound
+sudo nvram SystemAudioVolume=" "
+
+# Disable automatic termination of idle apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Disable notifications center and remove menubar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationscenterui.plist 2> /dev/null
+
+# Disable smart quotes and dashes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable hibernation
+sudo pmset -a hibernatemode 0
+
+# Remove sleep image
+sudo rm -f /private/var/vm/sleepimage 2>/dev/null
+sudo touch /private/var/vm/sleepimage 2>/dev/null
+sudo chflags uchg /private/var/vm/sleepimage 2>/dev/null
+
+# Disable sudden motion sensor (no use for SSDs)
+sudo pmset -a sms 0
+
+# Enable global tap-to-click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tabBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable stupid "natural" scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Improve bluetooth sound quality
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# Enable full keyboard support
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Switch to key repeat instead of press-and-hold
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Nice fast key repeat
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Set up languages
+defaults write NSGlobalDomain AppleLanguages -array "en"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
+defaults write NSGlobalDomain AppleMeasurementUntis -string "Inches"
+defaults write NSGlobalDomain AppleMetricUnits -bool false
+
+# Set up timezone
+sudo systemsetup -settimezone "America/Chicago" > /dev/null
+
+# Disable autocorrect
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Require password immediately after screensaver activates
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Save screenshots to desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
 # Save screenshots as PNGs
 defaults write com.apple.screencapture type -string "png"
 
 # Turn off shadows in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# Enable subpixel fonts for all monitors
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+# Enable HiDPI display modes
+sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+# Allow quitting finder with cmd+q
+defaults write com.apple.finder QuiteMenuItem -bool true
+
+# Disable finder animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# Set home dir as the default finder location
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 # Show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -38,12 +148,34 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Use list view in all finder windows
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Enable AirDrop on non-wifi connections
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+# Show finder status and path bar
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Automatically open finder window for newly mounted volume
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+
+# Disable warning when emptying trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show ~/Library folder
 chflags nohidden ~/Library
 
-# Enable debug menu in iCal
-defaults write com.apple.iCal IncludeDebugMenu -bool true
+# Show /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Bottom-left corner activates screensaver
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# Don't send search queries to Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# Disable iTerm quit prompt
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+killall Dock
 

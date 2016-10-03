@@ -22,7 +22,6 @@ export GIT_PS1_SHOWCOLORHINTS=true
 
 . ~/dev/devbin/git-bin/git-prompt.sh
 . ~/dev/devbin/git-bin/git-completion.bash
-export PS1='$(EC=$? && tab-name.sh && echo "\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0;35m\]$(__git_ps1 " (%s)")\n$(if [[ $EC -ne 0 ]]; then echo "\e[0;31m[$EC]"; else echo "\[\e[1;30m\][0]"; fi) \[\e[1;30m\]$(date -u +%H.%M.%S) \[\033[0m\]»» ")'
 
 for SCRIPT in ~/bash_completion.d/*; do . $SCRIPT; done
 
@@ -38,9 +37,9 @@ export EDITOR=vim
 export HISTSIZE=
 export HISTCONTROL=erasedups
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date"
-export PS1='$(EC=$? && tab-name.sh && echo "\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0;35m\]$(__git_ps1 " (%s)")\n$(if [[ $EC -ne 0 ]]; then echo "\e[0;31m[$EC]"; else echo "\[\e[1;30m\][0]"; fi) \[\e[1;30m\]$(date -u +%H.%M.%S) \[\033[0m\]»» ")'
+export PS1='$(EC=$? && echo "\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0;35m\]$(__git_ps1 " (%s)")\n$(if [[ $EC -ne 0 ]]; then echo "\e[0;31m[$EC]"; else echo "\[\e[1;30m\][0]"; fi) \[\e[1;30m\]$(date -u +%H.%M.%S) \[\033[0m\]»» ")'
 export PROMPT_COMMAND='tabname $(basename ${PWD/#$HOME/~})$(__git_ps1 " (%s)")'
-export PATH=$PATH:$HOME/.rvm/bin:$HOME/dev/devbin:$EC2_HOME/bin
+export PATH=$HOME/bin:$PATH:$HOME/.rvm/bin:$HOME/dev/devbin:$EC2_HOME/bin
 export LANG=en_US
 export LC_ALL="en_US.UTF-8"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
