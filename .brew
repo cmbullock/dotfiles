@@ -6,7 +6,6 @@ brew upgrade
 
 # Outdated apple stuff
 brew install coreutils
-echo "Add $(brew --prefix coreutils)/libexec/gnubin to \$PATH"
 brew install findutils
 brew install bash
 
@@ -23,16 +22,8 @@ brew install rlwrap
 brew install tree
 brew install tmux
 brew install unrar
-
-# Binary-only stuff
-brew tap phinze/homebrew-cask
-brew install brew-cask
-
-brew cask install dropbox
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install virtualbox
-brew cask install vlc
+brew install rabbitmq
+brew install mongodb
 
 # Cleanup
 brew cleanup
