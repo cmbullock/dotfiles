@@ -11,6 +11,7 @@ Thumbs.db
 # VIM stuff
 .vimsession
 .netrwhist
+.vim/bundle/**
 
 .lein-failures
 

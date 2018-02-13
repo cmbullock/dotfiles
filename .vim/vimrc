@@ -1,7 +1,17 @@
 set nocompatible
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
+
+Bundle 'gmarik/Vundle.vim'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'altercation/vim-colors-soloraized'
+Bundle 'cakebaker/scss-syntax'
 
 set cm=blowfish
 set modeline
