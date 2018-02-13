@@ -20,8 +20,7 @@ done
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWCOLORHINTS=true
 
-. ~/dev/devbin/git-bin/git-prompt.sh
-. ~/dev/devbin/git-bin/git-completion.bash
+. $(find /usr/local/Cellar/git -name git-prompt.sh)
 
 for SCRIPT in ~/bash_completion.d/*; do . $SCRIPT; done
 
