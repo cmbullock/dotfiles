@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install if not already present
+hash brew 2>/dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Update everything
 brew update
 brew upgrade
@@ -26,6 +29,9 @@ brew install unrar
 brew cask install iterm2
 brew cask install virtualbox
 brew cask install vagrant
+brew cask install slack
+brew cask install flux
+brew cask install steam
 
 # Cleanup
 brew cleanup
