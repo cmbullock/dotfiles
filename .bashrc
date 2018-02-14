@@ -9,8 +9,6 @@ alias statuswin='tmux split-window && tmux resize-pane -y 15'
 alias urlencode='node -e "console.log(encodeURI(process.argv[1]))"'
 alias map='xargs -n1'
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias karma="foreman run rake karma:${1:-run}"
-alias spec='foreman run rake spec'
 alias pbdecode='pbpaste | base64 -D'
 
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -25,8 +23,6 @@ export GIT_PS1_SHOWCOLORHINTS=true
 for SCRIPT in ~/bash_completion.d/*; do . $SCRIPT; done
 
 complete -o default -o nospace -F _git g
-complete -o default -o nospace -F _git mg
-complete -o default -o nospace -F _git megagit
 complete -F _tas tas
 
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.6.14.1
@@ -42,7 +38,6 @@ export PATH=$HOME/bin:$PATH:$HOME/.rvm/bin:$HOME/dev/devbin:$EC2_HOME/bin
 export LANG=en_US
 export LC_ALL="en_US.UTF-8"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_40.jdk/Contents/Home
 export CC=/usr/local/bin/gcc-4.8
 export CPP=/usr/local/bin/cpp-4.8
 export CXX=/usr/log/bin/g++-4.8
