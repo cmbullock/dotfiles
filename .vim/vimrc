@@ -4,14 +4,15 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Bundle 'gmarik/Vundle.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-"Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'cakebaker/scss-syntax.vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'isRuslan/vim-es6'
 
 set cm=blowfish
 set modeline
