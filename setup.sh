@@ -10,4 +10,5 @@
 
  . ~/dotfiles/.osx
  . ~/dotfiles/.brew
+ . ~/dotfiles/.npm
 
