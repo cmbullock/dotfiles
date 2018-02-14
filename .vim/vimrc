@@ -7,11 +7,11 @@ call vundle#rc()
 Bundle 'gmarik/Vundle.vim'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-distinguished'
-Bundle 'altercation/vim-colors-soloraized'
-Bundle 'cakebaker/scss-syntax'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'cakebaker/scss-syntax.vim'
 
 set cm=blowfish
 set modeline
