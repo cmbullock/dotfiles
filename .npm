@@ -6,3 +6,6 @@ hash npm 2>/dev/null || {
   . nvm.sh
   nvm install --lts
 }
+
+npm install -g jest
+
