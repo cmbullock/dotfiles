@@ -1,6 +1,6 @@
 [user]
 	name = Colin Bullock
-	email = colin@getset.com
+	email = cmbullock@gmail.com
 [github]
 	user = cmbullock
 [alias]
@@ -32,6 +32,4 @@
 	diff = vimdiff
 [status]
 	submodulesummary = true
-[include]
-  path = ~/dev/devbin/git-bin/gitconfig
 
