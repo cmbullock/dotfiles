@@ -7,7 +7,7 @@ call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'altercation/vim-colors-solarized'
