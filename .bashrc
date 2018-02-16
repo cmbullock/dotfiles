@@ -38,9 +38,6 @@ export PATH=$HOME/bin:$PATH:$HOME/.rvm/bin:$HOME/dev/devbin:$EC2_HOME/bin
 export LANG=en_US
 export LC_ALL="en_US.UTF-8"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export CC=/usr/local/bin/gcc-4.8
-export CPP=/usr/local/bin/cpp-4.8
-export CXX=/usr/log/bin/g++-4.8
 
 source $HOME/dotfiles/secret.sh
 

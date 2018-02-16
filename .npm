@@ -8,4 +8,6 @@ hash npm 2>/dev/null || {
 }
 
 npm install -g jest
+npm install -g @angular/cli
+npm install -g clausreinke/typescript-tools typescript
 
