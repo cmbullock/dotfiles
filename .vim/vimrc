@@ -5,7 +5,8 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -133,6 +134,9 @@ endif
 au VimLeave * if(exists(':NERDTreeClose')) | NERDTreeClose | endif
 au VimLeave * mksession! .vimsession
 au VimEnter * if(filereadable('.vimsession') && argc() == 0) | source .vimsession | endif
+
+let g:airline_theme = 'distinguished'
+let g:airline_powerline_fonts = 1
 
 colorscheme distinguished
 hi StatusLineNC ctermbg=233

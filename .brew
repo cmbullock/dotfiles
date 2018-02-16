@@ -14,6 +14,7 @@ brew cask install vagrant
 brew cask install slack
 brew cask install flux
 brew cask install steam
+brew cask install font-nont-mono-for-powerline
 
 # Outdated apple stuff
 brew install coreutils

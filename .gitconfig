@@ -1,35 +1,43 @@
 [user]
-	name = Colin Bullock
-	email = cmbullock@gmail.com
+  name = Colin Bullock
+  email = cmbullock@gmail.com
 [github]
-	user = cmbullock
+  user = cmbullock
 [alias]
-	br = branch
-	cm = commit --message
-	cam = !git add -A && git commit -a --message
-	co = checkout
-	cob = checkout -b
-	d = diff
-	irb = rebase --interactive
-	st = status
+  br = branch
+  brclean = "!f() { git co ${1-master} && git br --merged ${1-master} | grep -v \" ${1-master}$\" | xargs git br -d; }; f"
+  brdone = "!f() { git co ${1-master} && git up && git brclean ${1-master}; }; f"
+  cm = commit --message
+  cam = !git add -A && git commit -a --message
+  co = checkout
+  cob = checkout -b
+  d = diff
+  ec = config --global -e
+  irb = rebase --interactive
+  out = log @{u}..
+  save = !git add -A && git commit -m '__WIP__'
+  st = status
+  undo = reset HEAD~1 --mixed
+  up = pull --rebase --prune
+  wipe = !git add -A && git commit -qm '__WIPE WIP__' && git reset HEAD~1 --hard
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [color]
-	ui = auto
+  ui = auto
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [push]
-	default = simple
+  default = simple
 [merge]
-	stat = true
-	diff = vimdiff
+  stat = true
+  diff = vimdiff
 [status]
-	submodulesummary = true
+  submodulesummary = true
 
