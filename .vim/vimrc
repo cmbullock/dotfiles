@@ -106,6 +106,7 @@ let g:is_posix = 1
 let NERDTreeWinSize=50
 let NERDTreeShowHidden=1
 let NERDTreeStatusLine=-1
+let g:NERDTreeIgnore=[ '.git', 'node_modules' ]
 com! NERDTreeSuperToggle :if(exists('b:NERDTreeType')) | NERDTreeToggle | else | NERDTreeFocus | endif
 map <Leader>t :NERDTreeSuperToggle<CR>
 " Close if only nerdtree is left open
