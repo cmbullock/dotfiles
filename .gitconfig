@@ -9,10 +9,10 @@
   brdone = "!f() { git co ${1-master} && git up && git brclean ${1-master}; }; f"
   cm = commit --message
   cam = !git add -A && git commit -a --message
+  cfg = config --global -e
   co = checkout
   cob = checkout -b
   d = diff
-  ec = config --global -e
   irb = rebase --interactive
   out = log @{u}..
   save = !git add -A && git commit -m '__WIP__'
