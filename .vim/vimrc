@@ -143,6 +143,7 @@ colorscheme distinguished
 hi StatusLineNC ctermbg=233
 hi LineNr ctermbg=233
 hi Comment ctermbg=0
+hi QuickFixLine ctermbg=240
 
 syn on
 
