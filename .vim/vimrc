@@ -17,7 +17,7 @@ Plugin 'isRuslan/vim-es6'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 set cm=blowfish
 set modeline
