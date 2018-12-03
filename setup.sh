@@ -12,3 +12,5 @@
  . ~/dotfiles/.brew
  . ~/dotfiles/.npm
 
+ vim +PluginInstall +qall
+

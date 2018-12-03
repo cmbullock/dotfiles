@@ -2,8 +2,8 @@ set nocompatible
 
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
 
+call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -18,6 +18,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Shougo/vimproc.vim'
 "Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
 
 set cm=blowfish
 set modeline

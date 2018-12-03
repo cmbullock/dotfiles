@@ -90,7 +90,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Nice fast key repeat
 defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 30
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
 # Set up languages
 defaults write NSGlobalDomain AppleLanguages -array "en"
