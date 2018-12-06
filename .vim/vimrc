@@ -51,6 +51,8 @@ set expandtab
 set mouse=a
 set tw=0
 set statusline=%F%m%h%w\ %y\ %=\ %l/%L,\ %-3c\ %6p%%\ 
+"set macligatures
+set guifont=Fira\ Code:h12
 
 filetype on
 filetype plugin on
