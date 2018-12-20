@@ -13,8 +13,6 @@ brew cask install virtualbox
 brew cask install vagrant
 brew cask install slack
 brew cask install flux
-brew cask install steam
-brew cask install font-nont-mono-for-powerline
 
 # Outdated apple stuff
 brew install coreutils
@@ -26,7 +24,7 @@ brew install vim
 brew install wget --enable-iri
 brew install git
 brew install the_silver_searcher
-brew install imagemagick
+brew install jq
 brew install openssl
 brew install pcre
 brew install rlwrap
