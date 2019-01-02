@@ -82,6 +82,8 @@ map <F5> :call RunLastSpec()<CR>
 map <F7> :vertical wincmd f<CR>
 
 inoremap <C-@> <C-N>
+inoremap <S-Tab> <C-d>
+
 nnoremap ' `
 nnoremap ` '
 nnoremap U 
